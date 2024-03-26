@@ -2,7 +2,9 @@ import React from 'react'
 
 const PagesToRead = () => {
   return (
-    <div>PagesToRead</div>
+    <div className=''>
+      
+    </div>
   )
 }
 
