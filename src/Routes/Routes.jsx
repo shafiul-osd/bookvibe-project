@@ -6,46 +6,38 @@ import ListedBooks from '../pages/ListedBooks/ListedBooks.jsx';
 import PagesToRead from '../pages/PagesToRead/PagesToRead.jsx';
 import BookDetails from '../pages/BookDetails/BookDetails.jsx';
 import { useParams } from 'react-router-dom';
+import toast from 'react-hot-toast';
 
 // Define BookDetailsWrapper component outside of the router declaration
 const BookDetailsWrapper = () => {
   const { id } = useParams();
 
   const handleRead = (data) => {
-    // Retrieve existing data from local storage or initialize an empty array
     let existingData = JSON.parse(localStorage.getItem('readData')) || [];
-    
-    // Check if the data already exists in the array
-    if (!existingData.includes(data)) {
-      // Append new data to existing array
+
+    // If data is an object, stringify it for comparison
+    const stringifiedData = JSON.stringify(data);
+
+    if (!existingData.some(item => JSON.stringify(item) === stringifiedData)) {
       existingData.push(data);
-
-      // Save updated array back to local storage
       localStorage.setItem('readData', JSON.stringify(existingData));
-
-      // Optionally, you can also perform other actions here
-      alert('Data saved to local storage.');
+      toast.success("Successfully Added to Read List");
     } else {
-      alert('Data already exists in local storage.');
+      toast.error('The Item Already Exists!!!');
     }
   };
 
   const handleWish = (data) => {
-    // Retrieve existing data from local storage or initialize an empty array
     let existingData = JSON.parse(localStorage.getItem('wishData')) || [];
-    
-    // Check if the data already exists in the array
-    if (!existingData.includes(data)) {
-      // Append new data to existing array
+
+    const stringifiedData = JSON.stringify(data);
+
+    if (!existingData.some(item => JSON.stringify(item) === stringifiedData)) {
       existingData.push(data);
-
-      // Save updated array back to local storage
       localStorage.setItem('wishData', JSON.stringify(existingData));
-
-      // Optionally, you can also perform other actions here
-      alert('Wish saved to local storage.');
+      toast.success("Successfully Added to Wish List List");
     } else {
-      alert('Wish already exists in local storage.');
+      toast.error('The Item Already Exists!!!');
     }
   };
 
