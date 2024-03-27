@@ -2,6 +2,7 @@
 import Tag from '../../components/Tag/Tag.jsx'
 import { CiLocationOn } from "react-icons/ci";
 import { MdPeopleAlt ,MdOutlineInsertPageBreak} from "react-icons/md";
+import { Link } from 'react-router-dom';
 
 const Book = ({wish}) => {
     const {bookName,author,image,tags,rating,category,publisher,totalPages,yearOfPublishing} = wish;
@@ -47,7 +48,7 @@ const Book = ({wish}) => {
                     <div className=" flex flex-col md:flex-row items-center gap-4">
                         <button className='btn btn-sm text-sm rounded-2xl bg-blue-300 text-blue-800'>category : {category}</button>
                         <button className='btn btn-sm text-sm rounded-2xl bg-red-300 text-red-800'>Rating : {rating}</button>
-                        <button className='btn btn-success btn-md text-white text-sm rounded-2xl '>View Details</button>
+                        <Link to={`/bookdetails/${wish.bookId}`}><button className='btn btn-success btn-md text-white text-sm rounded-2xl '>View Details</button></Link>
                     </div>
                     
                 </div>
