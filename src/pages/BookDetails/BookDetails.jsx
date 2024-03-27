@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useLoaderData, useParams } from 'react-router-dom';
 
-const BookDetails = () => {
+const BookDetails = ({handleRead,handleWish}) => {
   const [exactData, setExactData] = useState(null);
   const { id } = useParams();
   const books = useLoaderData();
@@ -66,8 +66,8 @@ const BookDetails = () => {
               </table>
             </div>
             <div className="mt-10 flex items-center gap-3">
-              <button className='btn btn-success btn-outline px-8 text-lg '>Read</button>
-              <button className='btn btn-info px-8 text-lg'>Wish list</button>
+              <button onClick={()=> handleRead(exactData)} className='btn btn-success btn-outline px-8 text-lg '>Read</button>
+              <button onClick={()=> handleWish(exactData)} className='btn btn-info px-8 text-lg'>Wish list</button>
             </div>
           </div>
         </div>
