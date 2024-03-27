@@ -13,31 +13,46 @@ const BookDetailsWrapper = () => {
   const { id } = useParams();
 
   const handleRead = (data) => {
-    let existingData = JSON.parse(localStorage.getItem('readData')) || [];
+    let existingReadData = JSON.parse(localStorage.getItem('readData')) || [];
+    let existingWishData = JSON.parse(localStorage.getItem('wishData')) || [];
 
     // If data is an object, stringify it for comparison
     const stringifiedData = JSON.stringify(data);
 
-    if (!existingData.some(item => JSON.stringify(item) === stringifiedData)) {
-      existingData.push(data);
-      localStorage.setItem('readData', JSON.stringify(existingData));
-      toast.success("Successfully Added to Read List");
+    if (!existingReadData.some(item => JSON.stringify(item) === stringifiedData)) {
+      existingReadData.push(data);
+      localStorage.setItem('readData', JSON.stringify(existingReadData));
+      toast.success("Item successfully added to Read List!");
+      // Check if the item exists in the Wishlist and remove it
+      const index = existingWishData.findIndex(item => JSON.stringify(item) === stringifiedData);
+      if (index !== -1) {
+        existingWishData.splice(index, 1);
+        localStorage.setItem('wishData', JSON.stringify(existingWishData));
+      }
     } else {
-      toast.error('The Item Already Exists!!!');
+      toast.error("The Item Already Exists in the Read List!!!");
     }
   };
 
   const handleWish = (data) => {
-    let existingData = JSON.parse(localStorage.getItem('wishData')) || [];
+    let existingReadData = JSON.parse(localStorage.getItem('readData')) || [];
+    let existingWishData = JSON.parse(localStorage.getItem('wishData')) || [];
 
+    // If data is an object, stringify it for comparison
     const stringifiedData = JSON.stringify(data);
 
-    if (!existingData.some(item => JSON.stringify(item) === stringifiedData)) {
-      existingData.push(data);
-      localStorage.setItem('wishData', JSON.stringify(existingData));
-      toast.success("Successfully Added to Wish List List");
+    // Check if the item already exists in the Read List
+    if (existingReadData.some(item => JSON.stringify(item) === stringifiedData)) {
+      toast.error('The Item Already Exists in the Read List!!!')
     } else {
-      toast.error('The Item Already Exists!!!');
+      // Check if the item already exists in the Wishlist
+      if (!existingWishData.some(item => JSON.stringify(item) === stringifiedData)) {
+        existingWishData.push(data);
+        localStorage.setItem('wishData', JSON.stringify(existingWishData));
+        toast.success("Wish saved to local storage.");
+      } else {
+        toast.error("This item already exist in wish list!!!");
+      }
     }
   };
 
