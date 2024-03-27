@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
-import ListedBook from '../../components/ListedBook/ListedBook';
+import ListedBookRead from '../../components/ListedBookRead/ListedBookRead';
+import ListedBookWish from '../../components/ListedBookWish/ListedBookWish';
 
 const ListedBooks = () => {
   const [reads, setReads] = useState([]);
@@ -35,14 +36,14 @@ const ListedBooks = () => {
             <input type="radio" name="my_tabs_2" role="tab" className="tab " aria-label="Read" checked />
             <div role="tabpanel" className="tab-content bg-base-100 border-base-300 rounded-box p-6">
               {
-                reads.map(read => <ListedBook key={read.bookId} />)
+                reads.map(read => <ListedBookRead key={read.bookId} read={read} />)
               }
             </div>
 
             <input type="radio" name="my_tabs_2" role="tab" className="tab " aria-label="Wish" />
             <div role="tabpanel" className="tab-content bg-base-100 border-base-300 rounded-box p-6">
               {
-                wishes.map(wish => <ListedBook key={wish.bookId} />)
+                wishes.map(wish => <ListedBookWish key={wish.bookId} wish={wish} />)
               }
             </div>
           </div>
