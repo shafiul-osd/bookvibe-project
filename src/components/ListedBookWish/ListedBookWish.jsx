@@ -10,7 +10,7 @@ const Book = ({ wish }) => {
         <div className=''>
             <div className="card bg-base-100 shadow-xl border grid grid-cols-1 md:grid-cols-3 my-5">
                 <figure className="px-5 col-span-1 md:col-span-1">
-                    <img src="https://daisyui.com/images/stock/photo-1606107557195-0e29a4b5b4aa.jpg" alt="Shoes" className="rounded-xl m-3" />
+                    <img src={image} alt="Shoes" className="rounded-xl m-3 w-fit h-52" />
                 </figure>
                 <div className="card-body col-span-1 md:col-span-2">
                     <h1 className="text-xl font-bold text-center md:text-left">{bookName}</h1>

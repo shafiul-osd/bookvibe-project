@@ -7,6 +7,8 @@ import PagesToRead from '../pages/PagesToRead/PagesToRead.jsx';
 import BookDetails from '../pages/BookDetails/BookDetails.jsx';
 import { useParams } from 'react-router-dom';
 import toast from 'react-hot-toast';
+import About from '../pages/About/About.jsx';
+import Contacts from '../pages/Contacts/Contacts.jsx';
 
 // Define BookDetailsWrapper component outside of the router declaration
 const BookDetailsWrapper = () => {
@@ -78,12 +80,12 @@ const router = createBrowserRouter([
         element: <PagesToRead />
       },
       {
-        path: "/anotherpage",
-        element: <div>Another Page</div>
+        path: "/about",
+        element: <About/>
       },
       {
-        path: "/newpage",
-        element: <div>New Page</div>
+        path: "/contacts",
+        element: <Contacts/>
       },
       {
         path: "/bookdetails/:id",

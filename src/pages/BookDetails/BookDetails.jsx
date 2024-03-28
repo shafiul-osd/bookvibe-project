@@ -21,7 +21,7 @@ const BookDetails = ({handleRead,handleWish}) => {
     <div className='max-w-[1440px] mx-auto'>
       <div className="w-[90%] mx-auto grid grid-cols-1 md:grid-cols-2 gap-10 my-20">
         <div className="bg-gray-100 flex justify-center items-center rounded-xl">
-          <img className='w-[70%] h-[80%]' src="https://img.freepik.com/free-photo/red-hardcover-book-front-cover_1101-833.jpg" alt="" />
+          <img className='w-[70%] h-[80%]' src={exactData.image} alt="" />
         </div>
         <div className="">
           <h1 className="text-3xl">{exactData.bookName}</h1>

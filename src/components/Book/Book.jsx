@@ -8,7 +8,7 @@ const Book = ({ book }) => {
       <div>
         <div className="card bg-base-100 shadow-xl border">
           <figure className="px-5 pt-5">
-            <img src="https://daisyui.com/images/stock/photo-1606107557195-0e29a4b5b4aa.jpg" alt="Shoes" className="rounded-xl" />
+            <img className="w-fit h-96" src={image} />
           </figure>
           <div className="card-body">
             <div className="flex gap-1">

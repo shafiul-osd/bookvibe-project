@@ -6,8 +6,8 @@ const NavBar = () => {
 			<li><NavLink to="/">Home</NavLink></li>
 			<li><NavLink to="/listedbooks">Listed Books</NavLink></li>
 			<li><NavLink to="/pagestoread">Pages To Read</NavLink></li>
-			<li><NavLink to="/anotherpage">Another Page</NavLink></li> {/* Added new route */}
-			<li><NavLink to="/newpage">New Page</NavLink></li> {/* Added new route */}
+			<li><NavLink to="/about">About</NavLink></li>
+			<li><NavLink to="/contacts">Contacts</NavLink></li>
 		</>
 	);
 
@@ -23,7 +23,7 @@ const NavBar = () => {
 							{links}
 						</ul>
 					</div>
-					<a className="btn btn-ghost text-xl md:text-4xl font-bold">BookVibe</a>
+					<a className="btn btn-ghost text-xl md:text-4xl font-bold">Book Vibe</a>
 				</div>
 				<div className=" hidden md:flex">
 					<ul className="menu menu-horizontal px-1">
@@ -32,7 +32,7 @@ const NavBar = () => {
 				</div>
 				<div className=" flex gap-2 items-center">
 					<a className="btn btn-sm md:btn-md btn-success">Sign in</a>
-					<a className="btn btn-sm md:btn-md btn-primary">Sign Up</a>
+					<a className="btn btn-sm md:btn-md btn-info">Sign Up</a>
 				</div>
 			</div>
 		</div>
