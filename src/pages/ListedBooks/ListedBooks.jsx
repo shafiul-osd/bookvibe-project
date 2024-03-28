@@ -34,8 +34,8 @@ const ListedBooks = () => {
         const ratingB = parseFloat(b[sortBy]);
 
         // Compare ratings
-        if (ratingA < ratingB) return 1; // Sorting in descending order
-        if (ratingA > ratingB) return -1;
+        if (ratingA < ratingB) return -1; // Sorting in descending order
+        if (ratingA > ratingB) return 1;
         return 0;
       } else {
         // For other fields, compare directly

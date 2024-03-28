@@ -25,8 +25,8 @@ const Book = ({ read }) => {
                             </div>
                         </div>
                         <div className="flex items-center gap-2">
-                            <span>
-                                <CiLocationOn />
+                            <span className='flex items-center gap-1'>
+                                <CiLocationOn /> <p className="">Year of Publishing :</p>
                             </span>
                             <p className="">{yearOfPublishing}</p>
                         </div>

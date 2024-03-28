@@ -1,11 +1,11 @@
 
 import Tag from '../../components/Tag/Tag.jsx'
 import { CiLocationOn } from "react-icons/ci";
-import { MdPeopleAlt ,MdOutlineInsertPageBreak} from "react-icons/md";
+import { MdPeopleAlt, MdOutlineInsertPageBreak } from "react-icons/md";
 import { Link } from 'react-router-dom';
 
-const Book = ({wish}) => {
-    const {bookName,author,image,tags,rating,category,publisher,totalPages,yearOfPublishing} = wish;
+const Book = ({ wish }) => {
+    const { bookName, author, image, tags, rating, category, publisher, totalPages, yearOfPublishing } = wish;
     return (
         <div className=''>
             <div className="card bg-base-100 shadow-xl border grid grid-cols-1 md:grid-cols-3 my-5">
@@ -20,13 +20,13 @@ const Book = ({wish}) => {
                             <strong>tags : </strong>
                             <div className='flex gap-1 items-center'>
                                 {
-                                    tags.map((tag,i) => <Tag key={i} tag={tag}/>)
+                                    tags.map((tag, i) => <Tag key={i} tag={tag} />)
                                 }
                             </div>
                         </div>
                         <div className="flex items-center gap-2">
-                            <span>
-                                <CiLocationOn />
+                            <span className='flex items-center gap-1'>
+                                <CiLocationOn /> <p className="">Year of Publishing :</p>
                             </span>
                             <p className="">{yearOfPublishing}</p>
                         </div>
@@ -50,7 +50,7 @@ const Book = ({wish}) => {
                         <button className='btn btn-sm text-sm rounded-2xl bg-red-300 text-red-800'>Rating : {rating}</button>
                         <Link to={`/bookdetails/${wish.bookId}`}><button className='btn btn-success btn-md text-white text-sm rounded-2xl '>View Details</button></Link>
                     </div>
-                    
+
                 </div>
             </div>
         </div>
